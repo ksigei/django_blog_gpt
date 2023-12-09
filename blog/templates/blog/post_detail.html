@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1 class="mt-5">{{ post.title }}</h1>
+    <p class="text-muted">Published on {{ post.published_date }} by {{ post.author.user.username }}</p>
+    <div class="mt-4">
+        {{ post.content|safe }}
+    </div>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary mt-3">Back to Posts</a>
+{% endblock %}

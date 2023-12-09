@@ -1,0 +1,19 @@
+<!-- blog/templates/blog/post_list.html -->
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h1 class="mt-5">Blog Posts</h1>
+    <div class="row mt-3">
+        {% for post in posts %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content|truncatechars:50 }}</p>
+                        <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
